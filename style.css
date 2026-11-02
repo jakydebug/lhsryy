@@ -1,0 +1,21 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}
+body{background:#0d1117;color:#e6edf3;line-height:1.6;padding:1rem;}
+.container{max-width:900px;margin:0 auto;}
+.hero{text-align:center;margin:4rem 0 3rem;}
+.avatar{font-size:4rem;margin-bottom:1rem;}
+h1{font-size:2.4rem;margin-bottom:0.6rem;color:#fff;}
+.subtitle{color:#8b949e;font-size:1.15rem;margin-bottom:1.5rem;}
+.links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.links a{color:#58a6ff;text-decoration:none;padding:0.5rem 0.9rem;border:1px solid #30363d;border-radius:8px;transition:0.2s;}
+.links a:hover{background:#1f2937;border-color:#58a6ff;}
+section{margin:3rem 0;}
+h2{font-size:1.6rem;margin-bottom:1rem;border-left:4px solid #388bff;padding-left:0.8rem;}
+.about p{color:#c9d1d9;font-size:1.05rem;}
+.project-list{display:grid;grid-template-columns:repeat(auto-fill, minmax(250px,1fr));gap:1.2rem;}
+.project-card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:1.2rem;transition:0.25s;}
+.project-card:hover{transform:translateY(-4px);border-color:#58a6ff;box-shadow:0 8px 24px #0003;}
+.project-card h3{margin-bottom:0.5rem;color:#fff;}
+.project-card p{color:#8b949e;font-size:0.95rem;margin-bottom:0.8rem;}
+.project-card a{color:#58a6ff;text-decoration:none;}
+footer{text-align:center;margin-top:5rem;padding:2rem 0;color:#8b949e;font-size:0.9rem;border-top:1px solid #22272e;}
+footer a{color:#58a6ff;text-decoration:none;}

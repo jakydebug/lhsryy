@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="avatar">👨‍💻</div>
+            <h1 id="site-name">你的名字</h1>
+            <p class="subtitle" id="site-subtitle">热爱技术，热爱生活</p>
+            <div class="links" id="social-links">
+                <a href="https://github.com/" target="_blank">GitHub</a>
+                <a href="#" target="_blank">博客</a>
+                <a href="mailto:xxx@xxx.com">邮箱</a>
+            </div>
+        </header>
+
+        <section class="about">
+            <h2>关于我</h2>
+            <div id="about-content">
+                <p>这里是关于我的介绍，你可以去后台修改这段文字。</p>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2>项目作品</h2>
+            <div class="project-list" id="project-list">
+                <!-- 项目由JS动态渲染 -->
+            </div>
+        </section>
+
+        <footer>
+            <p>© <span id="footer-year">2026</span> 个人主页 | <a href="admin.html">管理后台</a></p>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
