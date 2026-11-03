@@ -1,126 +1,86 @@
-// 默认配置！！后台导出新json之后，替换这里，提交github更新网站
-const defaultConfig = {
-    name: "你的名字",
-    subtitle: "热爱技术，热爱生活",
-    social: [
-        {name:"GitHub", url:"https://github.com/"},
-        {name:"博客", url:"#"},
-        {name:"邮箱", url:"mailto:xxx@xxx.com"}
-    ],
-    about: "<p>这里是关于我的介绍，你可以去后台修改这段文字。</p>",
-    projects: [
-        {title:"示例项目", desc:"一个很酷的个人项目", url:"#"}
-    ]
-};
-
-// 读取本地存储
-function getConfig(){
-    const str = localStorage.getItem("siteConfig");
-    if(str){
-        try{return JSON.parse(str);}catch(e){return defaultConfig;}
+{
+  "name": "三角洲行动",
+  "subtitle": "热爱技术，热爱生活",
+  "social": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/"
+    },
+    {
+      "name": "博客",
+      "url": "#"
+    },
+    {
+      "name": "邮箱",
+      "url": "mailto:liuhan87@zohomail.com"
     }
-    return defaultConfig;
-}
-
-// 保存本地
-function saveToLocal(cfg){
-    localStorage.setItem("siteConfig", JSON.stringify(cfg));
-}
-
-// 渲染主页
-function renderPage(){
-    const cfg = getConfig();
-    const nameEl = document.getElementById("site-name");
-    const subEl = document.getElementById("site-subtitle");
-    const socialEl = document.getElementById("social-links");
-    const aboutEl = document.getElementById("about-content");
-    const projectEl = document.getElementById("project-list");
-    const yearEl = document.getElementById("footer-year");
-    if(!nameEl) return; // 后台页面不渲染主页
-
-    nameEl.innerText = cfg.name;
-    subEl.innerText = cfg.subtitle;
-    yearEl.innerText = new Date().getFullYear();
-    aboutEl.innerHTML = cfg.about;
-
-    socialEl.innerHTML = "";
-    cfg.social.forEach(item=>{
-        const a = document.createElement("a");
-        a.href = item.url;
-        a.target="_blank";
-        a.innerText = item.name;
-        socialEl.appendChild(a);
-    })
-
-    projectEl.innerHTML = "";
-    cfg.projects.forEach(item=>{
-        const card = document.createElement("div");
-        card.className="project-card";
-        card.innerHTML = `
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            <a href="${item.url}" target="_blank">查看详情 →</a>
-        `;
-        projectEl.appendChild(card);
-    })
-}
-
-// ========== 后台页面功能 ==========
-function loadConfig(){
-    const cfg = getConfig();
-    document.getElementById("inp-name").value = cfg.name;
-    document.getElementById("inp-subtitle").value = cfg.subtitle;
-    document.getElementById("inp-about").value = cfg.about;
-
-    let socialText = "";
-    cfg.social.forEach(i=> socialText += `${i.name}|${i.url}\n`);
-    document.getElementById("inp-social").value = socialText.trim();
-
-    let projText = "";
-    cfg.projects.forEach(i=> projText += `${i.title}|${i.desc}|${i.url}\n`);
-    document.getElementById("inp-projects").value = projText.trim();
-}
-
-function saveConfig(){
-    const name = document.getElementById("inp-name").value;
-    const subtitle = document.getElementById("inp-subtitle").value;
-    const about = document.getElementById("inp-about").value;
-
-    const socialLines = document.getElementById("inp-social").value.split("\n").filter(s=>s.trim());
-    const social = socialLines.map(line=>{
-        const arr = line.split("|");
-        return {name:arr[0]||"", url:arr[1]||"#"};
-    })
-
-    const projLines = document.getElementById("inp-projects").value.split("\n").filter(s=>s.trim());
-    const projects = projLines.map(line=>{
-        const arr = line.split("|");
-        return {title:arr[0]||"", desc:arr[1]||"", url:arr[2]||"#"};
-    })
-
-    const newCfg = {name,subtitle,social,about,projects};
-    saveToLocal(newCfg);
-    alert("✅ 已保存到浏览器本地！记得导出JSON更新代码");
-}
-
-function exportJson(){
-    const cfg = getConfig();
-    document.getElementById("out-json").value = JSON.stringify(cfg,null,2);
-}
-
-function clearConfig(){
-    if(confirm("确定清空本地配置吗？不会影响github上的文件")){
-        localStorage.removeItem("siteConfig");
-        loadConfig();
-        alert("已清空");
+  ],
+  "about": "全面统筹行政运营：管理8人行政团队，全面负责4S店行政体系运营，制定完善20余项行政制度与流程规范，年管理\n预算300万元\n2000平米办公智能化改造：主导完成办公及展厅区域全面升级，优化空间布局，引入智能门禁、会议系统、环境监测\n等设施，实现员工满意度从75分提升至90分（提升20%），办公效率提升25%，年度能耗降低30%，年节约电费约8\n万元\nOA系统实施与数字化升级：推动行政数字化转型，主导OA系统选型、实施和培训，实现采购审批、费用报销、会议\n管理等12个核心流程线上化，工作效率提升40%，审批时间从3天缩短至1天（缩短67%），纸质流程减少80%，年节\n约纸张成本约5万元\n成本控制与采购优化：建立标准化采购流程与资产台账，通过供应商整合与流程优化，年均节约采购成本约15万元\n高端商务接待管理：主导重要客户接待与商务活动，年组织董事会、客户拜访等高端会议20余场，客户满意度保持",
+  "projects": [
+    {
+      "title": " 卓越的团队领导能力，成功管理8-10人行政团队，具备优秀的跨部门协调与资源整合能力",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "• 成本控制专家，通过精细化管理和流程优化，年均节约行政费用18-22%",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "• 大型项目管理专家，主导2000平米办公智能化改造项目，引入智能门禁、会议系统等先进设施，员工满意度提升",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "20%，办公效率提升25%，年度能耗降低30%",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "• 数字化转型专家，成功实施OA系统上线，实现12个核心流程线上化，工作效率提升40%，审批时间缩短67%，纸质",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "流程减少80%",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "• 疫情防控专家，精通疫情防控预案制定与执行，建立全员健康监测和日常消杀体系，确保疫情期间企业正常运营",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "• 安全应急管理专家，建立完善的应急预案体系，组建10人专业应急小组（医疗+安全+后勤），制定三级响应机制，",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "资源调配时间缩短75%；实施月度培训12次/年+季度演练4次/年+年度大练兵，培训覆盖率100%，考核通过率",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "95%；处理突发事件25起，平均响应时间20分钟，重大事件处置成功率100%，年均减少业务停机时间50小时",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "• 危机处理专家，擅长突发事件应急响应和资源快速调配，建立标准化应急处理流程，确保企业安全运营，最小化业",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "务影响",
+      "desc": "",
+      "url": "#"
+    },
+    {
+      "title": "行政管理：4S店行政体系、办公环境管理、资产采购、客户接待管理、行政制度制定、后勤保障、应急预案制定",
+      "desc": "",
+      "url": "#"
     }
-}
-
-// 页面加载执行
-window.onload = function(){
-    renderPage();
-    // 如果是后台页，自动加载表单
-    if(document.getElementById("inp-name")){
-        loadConfig();
-    }
+  ]
 }
